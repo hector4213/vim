@@ -16,6 +16,7 @@ if has("nvim")
   Plug 'arcticicestudio/nord-vim'
   Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51' }
   Plug 'glepnir/dashboard-nvim'
+  Plug 'L3MON4D3/LuaSnip'
 
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lualine/lualine.nvim'
