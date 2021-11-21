@@ -5,7 +5,6 @@ endif
 call plug#begin()
 
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 if has("nvim")
@@ -17,6 +16,9 @@ if has("nvim")
   Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51' }
   Plug 'glepnir/dashboard-nvim'
   Plug 'L3MON4D3/LuaSnip'
+  Plug 'lewis6991/gitsigns.nvim'
+  Plug 'tpope/vim-commentary'
+  Plug 'vim-test/vim-test'
 
   Plug 'neovim/nvim-lspconfig'
   Plug 'nvim-lualine/lualine.nvim'

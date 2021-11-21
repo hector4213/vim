@@ -8,13 +8,14 @@ scriptencoding utf-8
 " stop loading config if it's on tiny or small
 if !1 | finish | endif
 
+set nocompatible
+syntax enable
+set guicursor=
 set linespace=2
 set ruler
+set nu
 set updatetime=50
-
-set nocompatible
 set relativenumber
-syntax enable
 set fileencodings=utf-8
 set encoding=utf-8
 set title
@@ -26,6 +27,7 @@ set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
+set colorcolumn=80
 set expandtab
 "let loaded_matchparen = 1
 set shell=zsh

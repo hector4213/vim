@@ -12,6 +12,9 @@ nnoremap - <C-x>
 " Delete a word backwards
 nnoremap dw vb"_d
 
+"Clear highlights
+nnoremap <esc> :noh<return><esc>
+
 " Select all
 nmap <C-a> gg<S-v>G
 
