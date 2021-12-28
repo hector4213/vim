@@ -13,8 +13,7 @@ if has("nvim")
   Plug 'hrsh7th/nvim-cmp'
   Plug 'onsails/lspkind-nvim'
   Plug 'arcticicestudio/nord-vim'
-  Plug 'tami5/lspsaga.nvim', {'branch': 'nvim51' }
-  Plug 'glepnir/dashboard-nvim'
+  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim6.0' }
   Plug 'L3MON4D3/LuaSnip'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'tpope/vim-commentary'
@@ -25,7 +24,6 @@ if has("nvim")
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'kabouzeid/nvim-lspinstall'
   Plug 'folke/lsp-colors.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'

@@ -3,10 +3,6 @@ if !exists('g:lspconfig')
 endif
 
 lua << EOF
---vim.lsp.set_log_level("debug")
-EOF
-
-lua << EOF
 local nvim_lsp = require('lspconfig')
 local protocol = require'vim.lsp.protocol'
 
@@ -42,39 +38,39 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
   -- formatting
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-  end
+
+   -- if client.resolved_capabilities.document_formatting then
+   -- vim.api.nvim_command [[augroup Format]]
+   -- vim.api.nvim_command [[autocmd! * <buffer>]]
+   -- vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+   -- vim.api.nvim_command [[augroup END]]
+   --  end
 
 end
 
-require'lspinstall'.setup() -- important
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
- -- autocompletion
-  require("nvim-autopairs.completion.cmp").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-  auto_select = true, -- automatically select the first item
-  insert = false, -- use insert confirm behavior instead of replace
-  map_char = { -- modifies the function or method delimiter by filetypes
-    all = '(',
-    tex = '{'
-  }
-})
+-- Set up completion using nvim_cmp with LSP source
 
--- init lang servers
-local servers = require'lspinstall'.installed_servers()
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
-for _, server in pairs(servers) do
- require'lspconfig'[server].setup{
-   on_attach = on_attach,
-   capabilities = capabilities,
- }
-end
+nvim_lsp.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+
+nvim_lsp.solargraph.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  capabilities = capabilities
+}
+
 
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
